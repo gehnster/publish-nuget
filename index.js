@@ -48,7 +48,7 @@ class Action {
         this._executeInProcess(`git tag ${TAG}`)
         this._executeInProcess(`git push origin ${TAG}`)
 
-        process.stdout.write(`::set-output name=VERSION::${TAG}` + os.EOL)
+        process.stdout.write(`VERSION::${TAG} >> $GITHUB_OUTPUT` + os.EOL)
     }
 
     _pushPackage(version, name) {
